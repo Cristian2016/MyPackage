@@ -291,19 +291,19 @@ public extension String {
 public extension UserDefaults {
     struct Key {
         ///bubble rank
-        static let  /* bubble */ rank =  /* bubble */ "rank"
+        public static let  /* bubble */ rank =  /* bubble */ "rank"
         
-        static let localNotificationsAuthorizationRequestedAlready = "localNotificationsAuthorizationRequestedAlready"
-        static let calendarAccessGranted = "calendarAccessGranted"
-        static let defaultCalendarID = "defaultCalendarIdentifier"
+        public static let localNotificationsAuthorizationRequestedAlready = "localNotificationsAuthorizationRequestedAlready"
+        public static let calendarAccessGranted = "calendarAccessGranted"
+        public static let defaultCalendarID = "defaultCalendarIdentifier"
         
-        static let notificationReceivalMoment = "notificationReceivalMoment"
-        static let infoBannerNotShownAlready = "infoBannerNotShownAlready"
+        public static let notificationReceivalMoment = "notificationReceivalMoment"
+        public static let infoBannerNotShownAlready = "infoBannerNotShownAlready"
         
-        static let widgetEnabledTimeBubble = "widgetEnabledTimeBubble"
-        static let shouldExplainingTextBeVisible = "shouldExplainingTextBeVisible"
+        public static let widgetEnabledTimeBubble = "widgetEnabledTimeBubble"
+        public static let shouldExplainingTextBeVisible = "shouldExplainingTextBeVisible"
         
-        static let firstAppLaunchEver = "firstAppLaunchEver"
+        public static let firstAppLaunchEver = "firstAppLaunchEver"
     }
     
     static func generateRank() -> Int {
