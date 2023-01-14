@@ -9,5 +9,5 @@ import Foundation
 import SwiftUI
 
 public extension UIDevice {
-    static let isIPad: Bool = UIDevice.current.userInterfaceIdiom == .pad
+    static let isIPad = UIDevice.current.userInterfaceIdiom == .pad
 }
