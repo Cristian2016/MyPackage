@@ -305,60 +305,6 @@ public extension String {
     }
 }
 
-
-public extension Float {
-    //converts currentClock to time components to display
-    var timeComponents:TimeComponents {
-        let decimalValue = Int(self) //used to compute hr. min, sec
-        let fractionalValue = Int((self - Float(decimalValue))*100)
-        
-        //how many full hours
-        let hr = decimalValue/3600
-        //hours remaining
-        let hrRemaining = decimalValue%3600
-        
-        //how many full minutes
-        let min = hrRemaining/60
-        //remaining
-        let sec = hrRemaining%60
-        
-        return TimeComponents(hr: hr, min: min, sec: sec, cents: fractionalValue)
-    }
-    
-    var timeComponentsAsStrings:TimeComponentsAsStrings {
-        let components = timeComponents
-        
-        let cents = String(format: "%.2d", components.cents)
-        return TimeComponentsAsStrings(hr: String(components.hr), min: String(components.min), sec: String(components.sec), cents: cents)
-    }
-    
-    var timeComponentsAbreviatedString:String {
-        let components = self.timeComponentsAsStrings
-        
-        let hr = (components.hr != "0") ? components.hr + "h" : ""
-        let min = (components.min != "0") ? components.min + "m" : ""
-        let cents = components.cents
-        let sec = components.sec + "." + cents + "s"
-        var result = hr + " " + min + " " + sec
-        result.trimWhiteSpaceAtTheBeginning()
-        return result
-    }
-    
-    struct TimeComponents {
-        let hr:Int
-        let min:Int
-        let sec:Int
-        let cents:Int
-    }
-    
-    struct TimeComponentsAsStrings:Encodable, Decodable {
-        let hr:String
-        let min:String
-        let sec:String
-        let cents:String
-    }
-}
-
 public extension UserDefaults {
     struct Key {
         ///bubble rank
