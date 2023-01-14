@@ -63,6 +63,7 @@ enum Visibility:CaseIterable {
     case invisible //hidden. still part of VH
 }
 
+@available(iOS 13.0, *)
 extension View {
     @ViewBuilder
     func visibility(_ visibility:Visibility) -> some View {
@@ -108,12 +109,14 @@ extension Array {
     }
 }
 
+@available(iOS 14.0, *)
 extension Text {
     func square(_ value:Int) -> some View {
         Text("\(Image(systemName: "\(value).square.fill"))")
     }
 }
 
+@available(iOS 13.0, *)
 extension Color {
     static let infoButton = Color("infoButton")
     static let selectionGray = Color("selectionGray")
@@ -166,6 +169,7 @@ extension Color {
     }
 }
 
+@available(iOS 13.0, *)
 extension Image {
     static let trash = Image(systemName: "trash")
     static let pauseSticker = Image("pauseSticker")
@@ -185,7 +189,7 @@ extension Image {
     static let digits = Image("digits")
 }
 
-func delayExecution(_ delay:DispatchTime, code:@escaping ()->()) {
+public func delayExecution(_ delay:DispatchTime, code:@escaping ()->()) {
     DispatchQueue.main.asyncAfter(deadline: delay, execute: code)
 }
 
@@ -483,6 +487,7 @@ extension DateFormatter {
     }()
 }
 
+@available(iOS 13.0, *)
 extension Animation {
     static let secondsTapped = Animation.spring(response: 0.3, dampingFraction: 0.4)
     static let secondsLongPressed = Animation.spring(response: 0.2, dampingFraction: 0.6)
