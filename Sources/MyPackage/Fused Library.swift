@@ -10,14 +10,14 @@ import UIKit
 #endif
 import SwiftUI
 
-struct UI {
+public struct UI {
     ///BubbleCell
     struct bCell {
         static let circleSpacingRatio = -CGFloat(0.11)
     }
 }
 
-extension Array {
+public extension Array {
     func twoDArray(_ rows/* count */: Int) -> [[Element]] {
         var finalResult = [[Element]]()
         var subarray = [Element]()
@@ -39,16 +39,16 @@ extension Array {
     }
 }
 
-extension DispatchTime {
+public extension DispatchTime {
     ///0.8 sec
     static var confirmation:DispatchTime { DispatchTime.now() + 0.7 }
 }
 
-extension UIScreen {
+public extension UIScreen {
     static let deviceNotTallEnough = UIScreen.main.bounds.height <= 667
 }
 
-extension Date {
+public extension Date {
     func sameDay(with date:Date) -> Bool {
         let calendar = Calendar(identifier: .gregorian)
         if calendar.component(.day, from: self) == calendar.component(.day, from: date) {
@@ -58,13 +58,13 @@ extension Date {
     }
 }
 
-enum Visibility:CaseIterable {
+public enum Visibility:CaseIterable {
     case visible
     case invisible //hidden. still part of VH
 }
 
 @available(iOS 13.0, *)
-extension View {
+public extension View {
     @ViewBuilder
     func visibility(_ visibility:Visibility) -> some View {
         switch visibility {
@@ -75,7 +75,7 @@ extension View {
 }
 
 ///various constants and values
-struct Global {
+public struct Global {
     static let longPressLatency = Double(0.3) //seconds
     
     //bubbleCell size
@@ -91,7 +91,7 @@ struct Global {
     }
 }
 
-extension Array {
+public extension Array {
     func shifted(by amount:Int) -> Array {
         
         if amount < 0 { fatalError("can't be negative. only zero or greater") }
@@ -110,14 +110,14 @@ extension Array {
 }
 
 @available(iOS 14.0, *)
-extension Text {
+public extension Text {
     func square(_ value:Int) -> some View {
         Text("\(Image(systemName: "\(value).square.fill"))")
     }
 }
 
 @available(iOS 13.0, *)
-extension Color {
+public extension Color {
     static let infoButton = Color("infoButton")
     static let selectionGray = Color("selectionGray")
     static let label = Color("label")
@@ -170,7 +170,7 @@ extension Color {
 }
 
 @available(iOS 13.0, *)
-extension Image {
+public extension Image {
     static let trash = Image(systemName: "trash")
     static let pauseSticker = Image("pauseSticker")
     static let spotlight = Image("spotlight")
@@ -193,7 +193,7 @@ public func delayExecution(_ delay:DispatchTime, code:@escaping ()->()) {
     DispatchQueue.main.asyncAfter(deadline: delay, execute: code)
 }
 
-extension NSNotification.Name {
+public extension NSNotification.Name {
     static let bubbleTimerSignal = NSNotification.Name("bubbleTimerSignal")
     
     ///each Bubble has a corresponding StartDelayBubble [SDB]
@@ -211,21 +211,21 @@ extension NSNotification.Name {
     static let textLimitExceeded = NSNotification.Name("textLimitExceeded")
 }
 
-extension Float {
+public extension Float {
     ///ex: decimalPlaces 2: 1.89099 -> "1.89"
     func shortString(by decimalPlaces:Int) -> String {
         String(format: "%.\(decimalPlaces)f", self)
     }
 }
 
-extension Double {
+public extension Double {
     ///ex: decimalPlaces 2: 1.89099 -> "1.89"
     func shortString(by decimalPlaces:Int) -> String {
         String(format: "%.\(decimalPlaces)f", self)
     }
 }
 
-struct Ratio {
+public struct Ratio {
     //BubbleCell
     ///screen width to bubble width |<-|<------->|->|
     static let screenToBubbleWidth = CGFloat(0.924)
@@ -235,11 +235,11 @@ struct Ratio {
     //
 }
 
-extension UIScreen {
+public extension UIScreen {
     static let size = UIScreen.main.bounds.size
 }
 
-extension NumberFormatter {
+public extension NumberFormatter {
     //truncates Float and returns a string
     static func bubblesStyle(_ float:Float, fractionDigits:Int = 0) -> String {
         let formatter = NumberFormatter()
@@ -253,7 +253,7 @@ extension NumberFormatter {
     }
 }
 
-extension FileManager {
+public extension FileManager {
     static var sharedContainerURL:URL = {
         guard let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: String.appGroupName)
         else { fatalError() }
@@ -261,7 +261,7 @@ extension FileManager {
     }()
 }
 
-extension String {
+public extension String {
     static let appGroupName = "group.com.Timers.container"
     static let smallestEmojiValue = 127744
     static let emptySpaceValue = 32
@@ -306,7 +306,7 @@ extension String {
 }
 
 
-extension Float {
+public extension Float {
     //converts currentClock to time components to display
     var timeComponents:TimeComponents {
         let decimalValue = Int(self) //used to compute hr. min, sec
@@ -359,7 +359,7 @@ extension Float {
     }
 }
 
-extension UserDefaults {
+public extension UserDefaults {
     struct Key {
         ///bubble rank
         static let  /* bubble */ rank =  /* bubble */ "rank"
@@ -424,7 +424,7 @@ public struct UserFeedback {
     }
 }
 
-extension NumberFormatter {
+public extension NumberFormatter {
     static let bubbleStyle:NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.locale = Locale(identifier: "us_US")
@@ -435,7 +435,7 @@ extension NumberFormatter {
     }()
 }
 
-extension Float {
+public extension Float {
     var hundredthsFromCurrentClock:String {
         var string = NumberFormatter.bubbleStyle.string(from: NSNumber(value: self))!
         string.removeFirst()
@@ -443,7 +443,7 @@ extension Float {
     }
 }
 
-extension DateComponentsFormatter {
+public extension DateComponentsFormatter {
     static let bubbleStyle:DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute, .second]
@@ -453,7 +453,7 @@ extension DateComponentsFormatter {
     }()
 }
 
-extension DateFormatter {
+public extension DateFormatter {
     ///Time Bubbles date style: Tue, 15 Feb. 22
     static let date: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -488,7 +488,7 @@ extension DateFormatter {
 }
 
 @available(iOS 13.0, *)
-extension Animation {
+public extension Animation {
     static let secondsTapped = Animation.spring(response: 0.3, dampingFraction: 0.4)
     static let secondsLongPressed = Animation.spring(response: 0.2, dampingFraction: 0.6)
 }
