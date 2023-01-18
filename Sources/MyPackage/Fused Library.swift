@@ -411,6 +411,8 @@ public extension DateFormatter {
         dateFormatter.locale = Locale.current
         dateFormatter.calendar = Calendar.current
         dateFormatter.timeStyle = .medium
+        dateFormatter.amSymbol = "am"
+        dateFormatter.pmSymbol = "pm"
         
         return dateFormatter
     }()
