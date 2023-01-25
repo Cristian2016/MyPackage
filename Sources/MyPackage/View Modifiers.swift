@@ -13,9 +13,11 @@ public struct SizeReader:ViewModifier {
     public func body(content: Content) -> some View {
         content
             .background {
-                GeometryReader { geo -> Color in
-                    DispatchQueue.main.async { size = geo.size }
-                    return .clear
+                if size == nil {
+                    GeometryReader { geo -> Color in
+                        DispatchQueue.main.async { size = geo.size }
+                        return .clear
+                    }
                 }
             }
     }
@@ -27,9 +29,13 @@ public struct FrameReader:ViewModifier {
     public func body(content: Content) -> some View {
         content
             .background {
-                GeometryReader { geo -> Color in
-                    DispatchQueue.main.async { frame = geo.frame(in: .global) }
-                    return .clear
+                if frame == nil {
+                    GeometryReader { geo -> Color in
+                        DispatchQueue.main.async {
+                            frame = geo.frame(in: .global)
+                        }
+                        return .clear
+                    }
                 }
             }
     }
