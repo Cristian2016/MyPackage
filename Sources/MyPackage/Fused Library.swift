@@ -245,6 +245,7 @@ public extension FileManager {
 }
 
 public extension String {
+    static let appGroupName = "group.com.Timers.container"
     static let smallestEmojiValue = 127744
     static let emptySpaceValue = 32
     
