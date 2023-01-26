@@ -12,7 +12,7 @@ public struct Push<Content:View>: View {
     public let position:Position
     public let content:Content
     
-    init(_ position: Position, @ViewBuilder _ content: () -> Content) {
+    public init(_ position: Position, @ViewBuilder _ content: () -> Content) {
         self.content = content()
         self.position = position
     }
