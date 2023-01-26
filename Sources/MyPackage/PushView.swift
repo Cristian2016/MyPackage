@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct Push<Content:View>: View {
+public struct Push<Content:View>: View {
     let position:Position
     let content:Content
     
