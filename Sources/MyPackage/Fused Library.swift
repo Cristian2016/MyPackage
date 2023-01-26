@@ -168,6 +168,7 @@ public extension Image {
     static let tap = Image(systemName: "circle.fill")
     static let startDelay = Image(systemName: "clock.arrow.circlepath")
     static let save = Image(systemName: "square.and.arrow.down")
+    static let calendar = Image(systemName: "calendar")
     
     static let digits = Image("digits")
 }
