@@ -17,7 +17,7 @@ public struct Push<Content:View>: View {
         self.position = position
     }
     
-    var body: some View { makePusher }
+    public var body: some View { makePusher }
     
     enum Position {
         case topLeft
