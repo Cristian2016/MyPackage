@@ -295,7 +295,7 @@ public extension UserDefaults {
         public static let widgetEnabledTimeBubble = "widgetEnabledTimeBubble"
         public static let shouldExplainingTextBeVisible = "shouldExplainingTextBeVisible"
         
-        public static let firstAppLaunchEver = "firstAppLaunchEver"
+        public static let isFirstAppLaunch = "isFirstAppLaunch"
     }
     
     static let shared = UserDefaults(suiteName: "group.com.Timers.container")!
