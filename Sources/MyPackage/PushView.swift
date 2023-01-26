@@ -9,8 +9,8 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 public struct Push<Content:View>: View {
-    let position:Position
-    let content:Content
+    public let position:Position
+    public let content:Content
     
     init(_ position: Position, @ViewBuilder _ content: () -> Content) {
         self.content = content()
@@ -19,7 +19,7 @@ public struct Push<Content:View>: View {
     
     public var body: some View { makePusher }
     
-    enum Position {
+    public enum Position {
         case topLeft
         case topRight
         case topMiddle
