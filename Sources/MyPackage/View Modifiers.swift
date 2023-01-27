@@ -38,6 +38,9 @@ public struct FrameReader:ViewModifier {
                     }
                 }
             }
+            .onChange(of: frame) { newValue in
+                print("frame is \(newValue)")
+            }
     }
 }
 
