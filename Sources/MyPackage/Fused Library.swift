@@ -297,8 +297,6 @@ public extension UserDefaults {
         
         public static let isFirstAppLaunch = "isFirstAppLaunch"
     }
-    
-    static let shared = UserDefaults(suiteName: "group.com.Timers.container")!
 }
 
 public struct UserFeedback {
