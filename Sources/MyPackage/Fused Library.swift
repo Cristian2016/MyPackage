@@ -41,7 +41,7 @@ public extension Array {
 
 public extension DispatchTime {
     ///0.8 sec
-    static var confirmation:DispatchTime { DispatchTime.now() + 0.7 }
+    static var confirmation:DispatchTime { DispatchTime.now() + 2.0 }
 }
 
 public extension UIScreen {
