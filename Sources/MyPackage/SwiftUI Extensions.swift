@@ -23,7 +23,10 @@ public extension ScenePhase {
 
 @available(iOS 15.0, *)
 public struct BlurryBackground:View {
-    public var material:Material = .ultraThinMaterial
+    var material:Material = .ultraThinMaterial
+    public init(material: Material) {
+        self.material = material
+    }
     public var body: some View {
         Color.clear
             .background(material, in: Rectangle())
