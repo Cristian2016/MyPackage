@@ -31,6 +31,5 @@ public struct BlurryBackground:View {
     public var body: some View {
         Color.clear
             .background(material, in: Rectangle())
-            .ignoresSafeArea()
     }
 }
