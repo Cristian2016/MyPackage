@@ -29,6 +29,6 @@ public struct BlurryBackground:View {
     }
     public init() { }
     public var body: some View {
-        Color.clear.background(material, in: Rectangle())
+        Color.clear.background(material)
     }
 }
