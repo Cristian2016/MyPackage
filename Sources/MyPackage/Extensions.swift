@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension CGSize:Hashable {
+public extension CGSize:Hashable {
     static func == (lhs:CGSize, rhs:CGSize) -> Bool {
         lhs.width == rhs.width && lhs.height == rhs.height
     }
@@ -18,7 +18,7 @@ extension CGSize:Hashable {
 }
 
 
-extension CGFloat {
+public extension CGFloat {
     static let minFontSize = CGFloat(18)
     static let largeTitle = CGFloat(40)
 }
