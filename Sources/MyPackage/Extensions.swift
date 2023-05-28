@@ -16,3 +16,9 @@ extension CGSize:Hashable {
         hasher.combine(self)
     }
 }
+
+
+extension CGFloat {
+    static let minFontSize = CGFloat(18)
+    static let largeTitle = CGFloat(40)
+}
