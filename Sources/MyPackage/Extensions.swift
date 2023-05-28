@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension CGSize:Hashable {
+extension CGSize:Hashable {
     static func == (lhs:CGSize, rhs:CGSize) -> Bool {
         lhs.width == rhs.width && lhs.height == rhs.height
     }
