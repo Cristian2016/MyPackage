@@ -33,6 +33,7 @@ public struct BlurryBackground:View {
     }
 }
 
+///Background covers the entire screen, it can be a 1.material (ex. .ultraThinMaterial), 2.clear or 3.dark with opacity
 @available(iOS 15.0, *)
 public struct Background:View {
     let kind:Kind
