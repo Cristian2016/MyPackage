@@ -62,7 +62,7 @@ public struct Background:View {
 @available(iOS 15.0, *)
 public extension Background {
     enum Kind {
-        case dark(opacity:Double = 0.5)
+        case dark(_ opacity:Double = 0.5)
         case material(Material)
         case clear
     }
