@@ -35,9 +35,11 @@ public struct BlurryBackground:View {
 
 @available(iOS 15.0, *)
 public struct Background:View {
-    var kind = Kind.material(.ultraThinMaterial)
+    let kind:Kind
     
-    public init() { }
+    public init(_ kind:Kind = .material(.ultraThinMaterial)) {
+        self.kind = kind
+    }
     
     @ViewBuilder
     public var body: some View {
