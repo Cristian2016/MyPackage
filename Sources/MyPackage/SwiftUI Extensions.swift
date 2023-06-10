@@ -32,3 +32,35 @@ public struct BlurryBackground:View {
         Color.clear.background(material).ignoresSafeArea()
     }
 }
+
+@available(iOS 15.0, *)
+public struct Background:View {
+    var kind = Kind.material(.ultraThinMaterial)
+    
+    public init() { }
+    
+    @ViewBuilder
+    public var body: some View {
+        ZStack {
+            switch kind {
+                case .clear:
+                    Color.clear
+                        .contentShape(Rectangle())
+                case .dark(opacity: let opacity):
+                    Color.black.opacity(opacity)
+                case .material(let material):
+                    Color.clear.background(material)
+            }
+        }
+        .ignoresSafeArea()
+    }
+}
+
+@available(iOS 15.0, *)
+public extension Background {
+    enum Kind {
+        case dark(opacity:CGFloat = 0.4)
+        case material(Material)
+        case clear
+    }
+}
